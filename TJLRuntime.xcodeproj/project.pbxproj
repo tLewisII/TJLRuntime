@@ -21,6 +21,9 @@
 		DBBF4C02186BBC0800A11A80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBF4BE4186BBC0800A11A80 /* UIKit.framework */; };
 		DBBF4C0A186BBC0800A11A80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBBF4C08186BBC0800A11A80 /* InfoPlist.strings */; };
 		DBBF4C0C186BBC0800A11A80 /* TJLRuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C0B186BBC0800A11A80 /* TJLRuntimeTests.m */; };
+		DBBF4C17186BBC2C00A11A80 /* TJLRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C16186BBC2C00A11A80 /* TJLRuntime.m */; };
+		DBBF4C1B186BBC6300A11A80 /* TJLProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1A186BBC6300A11A80 /* TJLProperty.m */; };
+		DBBF4C1E186BCDA600A11A80 /* TJLIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		DBBF4C07186BBC0800A11A80 /* TJLRuntimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TJLRuntimeTests-Info.plist"; sourceTree = "<group>"; };
 		DBBF4C09186BBC0800A11A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBBF4C0B186BBC0800A11A80 /* TJLRuntimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJLRuntimeTests.m; sourceTree = "<group>"; };
+		DBBF4C15186BBC2C00A11A80 /* TJLRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLRuntime.h; path = Source/TJLRuntime.h; sourceTree = "<group>"; };
+		DBBF4C16186BBC2C00A11A80 /* TJLRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLRuntime.m; path = Source/TJLRuntime.m; sourceTree = "<group>"; };
+		DBBF4C19186BBC6300A11A80 /* TJLProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLProperty.h; path = Source/TJLProperty.h; sourceTree = "<group>"; };
+		DBBF4C1A186BBC6300A11A80 /* TJLProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLProperty.m; path = Source/TJLProperty.m; sourceTree = "<group>"; };
+		DBBF4C1C186BCDA600A11A80 /* TJLIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLIvar.h; path = Source/TJLIvar.h; sourceTree = "<group>"; };
+		DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLIvar.m; path = Source/TJLIvar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +128,7 @@
 				DBBF4BF6186BBC0800A11A80 /* TJLViewController.m */,
 				DBBF4BF8186BBC0800A11A80 /* Images.xcassets */,
 				DBBF4BE7186BBC0800A11A80 /* Supporting Files */,
+				DBBF4C18186BBC3900A11A80 /* Source */,
 			);
 			path = TJLRuntime;
 			sourceTree = "<group>";
@@ -150,6 +160,19 @@
 				DBBF4C08186BBC0800A11A80 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DBBF4C18186BBC3900A11A80 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DBBF4C15186BBC2C00A11A80 /* TJLRuntime.h */,
+				DBBF4C16186BBC2C00A11A80 /* TJLRuntime.m */,
+				DBBF4C19186BBC6300A11A80 /* TJLProperty.h */,
+				DBBF4C1A186BBC6300A11A80 /* TJLProperty.m */,
+				DBBF4C1C186BCDA600A11A80 /* TJLIvar.h */,
+				DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBF4BF7186BBC0800A11A80 /* TJLViewController.m in Sources */,
+				DBBF4C17186BBC2C00A11A80 /* TJLRuntime.m in Sources */,
 				DBBF4BED186BBC0800A11A80 /* main.m in Sources */,
+				DBBF4C1B186BBC6300A11A80 /* TJLProperty.m in Sources */,
+				DBBF4C1E186BCDA600A11A80 /* TJLIvar.m in Sources */,
 				DBBF4BF1186BBC0800A11A80 /* TJLAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

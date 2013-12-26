@@ -18,7 +18,7 @@
  * @param method A method that represents a single method
  * declared in the given class.
  */
-- (instancetype)initWithClass:(Class)klass method:(Method)method;
+- (instancetype)__attribute__((nonnull(1, 2)))initWithClass:(Class)klass method:(Method)method;
 
 /**
  * Initialize the class with a method that is found
@@ -32,7 +32,7 @@
  * An object that wraps the info and behaviors of
  * Method into Foundation objects. Otherwise returns nil.
  */
-+ (instancetype)instanceMethodWithClass:(Class)klass selector:(SEL)selector;
++ (instancetype)__attribute__((nonnull(1, 2)))instanceMethodWithClass:(Class)klass selector:(SEL)selector;
 
 /**
  * Initialize the class with a method that is found
@@ -46,7 +46,7 @@
  * An object that wraps the info and behaviors of
  * Method into Foundation objects. Otherwise returns nil.
  */
-+ (instancetype)instanceMethodWithClass:(Class)klass name:(NSString *)name;
++ (instancetype)__attribute__((nonnull(1, 2)))instanceMethodWithClass:(Class)klass name:(NSString *)name;
 
 /**
  * Method swizzling. Exchanges the method implementation of
@@ -56,7 +56,15 @@
  * @param method The method whose implementation you would like to
  * exchange with the method of this class.
  */
-- (void)exchangeMethodImplementationWithMethod:(TJLMethod *)method;
+- (void)__attribute__((nonnull(1)))exchangeMethodImplementationWithMethod:(TJLMethod *)method;
+
+/**
+ * Replaces the implementation of this method with the implementation of the given method.
+ *
+ * @param method The method whose implementation you would like to replace the
+ * implementation of this method with.
+ */
+- (void)__attribute__((nonnull(1)))setMethodImplementationWithMethod:(TJLMethod *)method;
 
 /**
  * The name of the method. A method declared as
@@ -76,6 +84,11 @@
  * returns an object type will simply read as "id";
  */
 @property(strong, nonatomic, readonly) NSString *returnType;
+
+/**
+ * The selector for this method.
+ */
+@property(nonatomic, readonly) SEL selector;
 
 /**
  * The Method that was used to initialize this class.

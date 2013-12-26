@@ -28,9 +28,6 @@
     _ivarInstance = instance;
     _klass = klass;
     _property = property;
-    _propertyName = [NSString stringWithUTF8String:property_getName(property)];
-    _propertyType = getPropertyType(property);
-    _propertyAttributes = [NSString stringWithUTF8String:property_getAttributes(property)];
     
     return self;
 }
@@ -52,14 +49,23 @@
 }
 
 - (NSString *)name {
+    if(!_propertyName) {
+        _propertyName = [NSString stringWithUTF8String:property_getName(self.property)];
+    }
     return _propertyName;
 }
 
 - (NSString *)type {
+    if(!_propertyType ) {
+        _propertyType = getPropertyType(self.property);
+    }
     return _propertyType;
 }
 
 - (NSString *)attributes {
+    if(!_propertyAttributes) {
+        _propertyAttributes = [NSString stringWithUTF8String:property_getAttributes(self.property)];
+    }
     return _propertyAttributes;
 }
 

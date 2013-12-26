@@ -8,7 +8,10 @@
 
 #import "TJLMethod.h"
 @interface TJLMethod() {
-
+    NSString *_methodName;
+    NSString *_methodReturnType;
+    NSUInteger _methodArgumentCount;
+    SEL _methodSelector;
 }
 
 @end
@@ -22,7 +25,7 @@
     
     _klass = klass;
     _method = method;
-    
+    _methodArgumentCount = -1;
     return self;
 }
 
@@ -42,20 +45,38 @@
     method_exchangeImplementations(self.method, method.method);
 }
 
+-(void)setMethodImplementationWithMethod:(TJLMethod *)method {
+    method_setImplementation(_method, class_getMethodImplementation(self.klass, NSSelectorFromString(method.name)));
+}
+
 - (NSString *)name {
-    return NSStringFromSelector(method_getName(self.method));
+    if(!_methodName) {
+        _methodName = NSStringFromSelector(method_getName(self.method));
+    }
+    return _methodName;
 }
 
 - (NSUInteger)argumentCount {
-    return method_getNumberOfArguments(self.method);
+    if(_methodArgumentCount == -1) {
+       _methodArgumentCount = method_getNumberOfArguments(self.method);
+    }
+    return _methodArgumentCount;
 }
 
 - (NSString *)returnType {
-    char *returnType = method_copyReturnType(self.method);
-    NSString *returnValue = getReturnTypeFromCode(returnType);
-    
-    free(returnType);
-    return returnValue;
+    if(!_methodReturnType) {
+        char *returnType = method_copyReturnType(self.method);
+        _methodReturnType = getReturnTypeFromCode(returnType);
+        free(returnType);
+    }
+    return _methodReturnType;
+}
+
+- (SEL)selector {
+    if(!_methodSelector) {
+        _methodSelector = method_getName(self.method);
+    }
+    return _methodSelector;
 }
 
 static NSString *getReturnTypeFromCode(char *code) {
@@ -64,7 +85,7 @@ static NSString *getReturnTypeFromCode(char *code) {
     if(code == nil) {
         returnValue = @"";
     }
-    if(strcmp(code, "c") == 0) {
+    else if(strcmp(code, "c") == 0) {
         returnValue = @"char";
     }
     else if(strcmp(code, "i") == 0) {

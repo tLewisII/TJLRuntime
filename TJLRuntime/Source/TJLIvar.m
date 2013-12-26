@@ -27,9 +27,6 @@
     
     _instance = instance;
     _ivar = ivar;
-    _ivarName = [NSString stringWithUTF8String:ivar_getName(ivar)];
-    const char *type = ivar_getTypeEncoding(ivar);
-    _ivarType = [[NSString alloc]initWithBytes:type + 2 length:strlen(type) - 3 encoding:NSUTF8StringEncoding];
     
     return self;
 }
@@ -57,10 +54,17 @@
 }
 
 - (NSString *)name {
+    if(!_ivarName) {
+        _ivarName = [NSString stringWithUTF8String:ivar_getName(self.ivar)];
+    }
     return _ivarName;
 }
 
 - (NSString *)type {
+    if(!_ivarType) {
+        const char *type = ivar_getTypeEncoding(self.ivar);
+        _ivarType = [[NSString alloc]initWithBytes:type + 2 length:strlen(type) - 3 encoding:NSUTF8StringEncoding];
+    }
     return _ivarType;
 }
 

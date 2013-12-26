@@ -42,11 +42,11 @@
 /**
  * The Ivar that this class wraps.
  */
-@property(nonatomic, assign, readonly) Ivar ivar;
+@property(nonatomic, readonly) Ivar ivar;
 
 /**
  * The instance variable that holds the Ivar that is
  * wrapped by this class.
  */
-@property(nonatomic, assign, readonly) id instance;
+@property(strong, nonatomic, readonly) id instance;
 @end

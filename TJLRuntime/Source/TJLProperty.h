@@ -83,10 +83,10 @@
 /**
  * The objc_property_t struct that was used to initialize the class.
  */
-@property(nonatomic, assign, readonly) objc_property_t property;
+@property(nonatomic, readonly) objc_property_t property;
 
 /**
  * The class that this property belongs to.
  */
-@property(nonatomic, assign, readonly) Class klass;
+@property(nonatomic, readonly) Class klass;
 @end

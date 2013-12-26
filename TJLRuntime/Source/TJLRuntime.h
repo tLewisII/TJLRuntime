@@ -15,8 +15,8 @@
  * A NSDictionary of property types and names for the given class.
  *
  * @param klass The class which you want to get a property list for.
- * @return An NSDictionary where the keys are the type of the property and
- * the values are the name of the property.
+ * @return An NSDictionary where the keys are the name of the property and
+ * the values are the type of the property.
  */
 - (NSDictionary *)__attribute__((nonnull(1)))propertyTypeAndNameDictionaryForClass:(Class)klass;
 
@@ -61,8 +61,8 @@
  * A NSDictionary of ivar types and names for the given class.
  *
  * @param klass The class which you want to get a property list for.
- * @return An NSDictionary where the keys are the type of the ivar and
- * the values are the name of the ivar.
+ * @return An NSDictionary where the keys are the name of the ivar and
+ * the values are the type of the ivar.
  */
 - (NSDictionary *)__attribute__((nonnull(1)))ivarTypeAndNameDictionaryForClass:(Class)klass;
 

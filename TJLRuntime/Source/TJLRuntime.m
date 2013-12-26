@@ -16,7 +16,7 @@
     objc_property_t *properties = class_copyPropertyList(klass, &count);
     for(unsigned int i = 0; i < count; i++) {
         TJLProperty *property = [[TJLProperty alloc]initWithClass:klass property:properties[i]];
-        dictionary[property.type] = property.name;
+        dictionary[property.name] = property.type;
     }
     free(properties);
     
@@ -66,7 +66,7 @@
     Ivar *ivars = class_copyIvarList(klass, &count);
     for(unsigned int i = 0; i < count; i++) {
         TJLIvar *ivar = [[TJLIvar alloc]initWithIvar:ivars[i] instance:nil];
-        dictionary[ivar.type] = ivar.name;
+        dictionary[ivar.name] = ivar.type;
     }
     free(ivars);
     

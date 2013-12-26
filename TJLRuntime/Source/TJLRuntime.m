@@ -54,9 +54,7 @@
 }
 
 - (TJLProperty *)propertyForClass:(Class)klass name:(NSString *)name {
-   objc_property_t property = class_getProperty(klass, name.UTF8String);
-    if(property == NULL) return nil;
-    else return [[TJLProperty alloc]initWithClass:klass property:property];
+    return [TJLProperty propertyWithClass:klass name:name];
 }
 
 - (NSDictionary *)ivarTypeAndNameDictionaryForClass:(Class)klass {
@@ -104,8 +102,40 @@
 }
 
 - (TJLIvar *)ivarForClass:(Class)klass name:(NSString *)name instance:(id)instance {
-    Ivar ivar = class_getInstanceVariable(klass, name.UTF8String);
-    if(ivar == NULL) return nil;
-    else return [[TJLIvar alloc]initWithIvar:ivar instance:instance];
+    return [TJLIvar ivarForClass:klass name:name instance:instance];
+}
+
+- (NSArray *)methodNameArrayForClass:(Class)klass {
+    NSMutableArray *array = [NSMutableArray new];
+    unsigned int count;
+    Method *methods = class_copyMethodList(klass, &count);
+    
+    for(unsigned int i = 0; i < count; i++) {
+        array[i] = NSStringFromSelector(method_getName(methods[i]));
+    }
+    free(methods);
+    
+    return array;
+}
+
+- (NSArray *)methodsForClass:(Class)klass {
+    NSMutableArray *array = [NSMutableArray new];
+    unsigned int count;
+    Method *methods = class_copyMethodList(klass, &count);
+    
+    for(unsigned int i = 0; i < count; i++) {
+        array[i] = [[TJLMethod alloc]initWithClass:klass method:methods[i]];
+    }
+    free(methods);
+    
+    return array;
+}
+
+-(TJLMethod *)instanceMethodForClass:(Class)klass selector:(SEL)selector {
+    return [TJLMethod instanceMethodWithClass:klass selector:selector];
+}
+
+- (TJLMethod *)instanceMethodForClass:(Class)klass name:(NSString *)name {
+    return [TJLMethod instanceMethodWithClass:klass name:name];
 }
 @end

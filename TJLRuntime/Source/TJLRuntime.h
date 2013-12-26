@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TJLProperty.h"
+#import "TJLMethod.h"
 #import <objc/runtime.h>
 @interface TJLRuntime : NSObject
 
@@ -102,4 +103,47 @@
  * if no ivar was found for the given name in the given class.
  */
 - (TJLIvar *)__attribute__((nonnull(1)))ivarForClass:(Class)klass name:(NSString *)name instance:(id)instance;
+
+/**
+ * A NSArray of method names for the given class.
+ *
+ * @param klass The class which you want to get a method list for.
+ * @return An NSArray of NSStrings which are the names of the methods
+ * of the given class, in a form such that a method 
+ * `- (void)doStuff:(id)stuff withThing:(id)thing;` would
+ * return "doStuff:withThing:".
+ */
+- (NSArray *)__attribute__((nonnull(1)))methodNameArrayForClass:(Class)klass;
+
+/**
+ * A NSArray of TJLMethod objects for the given class.
+ *
+ * @param klass The class which you want to get a method list for.
+ * @return An NSArray of TJLMethods objects for the given class.
+ */
+- (NSArray *)__attribute__((nonnull(1)))methodsForClass:(Class)klass;
+
+/**
+ * Returns a TJLMethod object for the given selector and class.
+ *
+ * @param klass The class that the method is declared in.
+ * @param selector A selector for the method you want this class
+ * to encapsulate. Must be a selector that is an instance method on
+ * the given class.
+ * @return If the method for `selector` was found in the given class,
+ * A TJLMethod object, nil otherwise.
+ */
+- (TJLMethod *)__attribute__((nonnull(1, 2)))instanceMethodForClass:(Class)klass selector:(SEL)selector;
+
+/**
+ * Returns a TJLMethod object for the given selector and name.
+ *
+ * @param klass The class that the method is declared in.
+ * @param name The name of a selector for the method you to search for
+ * in the given class. Must be a name of a method that is an 
+ * instance method on the given class.
+ * @return If the method for `name` was found in the given class,
+ * An fully initialized TJLMethod object, nil otherwise.
+ */
+- (TJLMethod *)__attribute__((nonnull(1, 2)))instanceMethodForClass:(Class)klass name:(NSString *)name;
 @end

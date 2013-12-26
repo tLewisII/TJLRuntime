@@ -25,6 +25,7 @@
 		DBBF4C1B186BBC6300A11A80 /* TJLProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1A186BBC6300A11A80 /* TJLProperty.m */; };
 		DBBF4C1E186BCDA600A11A80 /* TJLIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */; };
 		DBBF4C21186CA5F400A11A80 /* TJLTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C20186CA5F400A11A80 /* TJLTestClass.m */; };
+		DBBF4C24186CAD7C00A11A80 /* TJLMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C23186CAD7C00A11A80 /* TJLMethod.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLIvar.m; path = Source/TJLIvar.m; sourceTree = "<group>"; };
 		DBBF4C1F186CA5F400A11A80 /* TJLTestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJLTestClass.h; sourceTree = "<group>"; };
 		DBBF4C20186CA5F400A11A80 /* TJLTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLTestClass.m; sourceTree = "<group>"; };
+		DBBF4C22186CAD7C00A11A80 /* TJLMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLMethod.h; path = Source/TJLMethod.h; sourceTree = "<group>"; };
+		DBBF4C23186CAD7C00A11A80 /* TJLMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLMethod.m; path = Source/TJLMethod.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				DBBF4C1A186BBC6300A11A80 /* TJLProperty.m */,
 				DBBF4C1C186BCDA600A11A80 /* TJLIvar.h */,
 				DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */,
+				DBBF4C22186CAD7C00A11A80 /* TJLMethod.h */,
+				DBBF4C23186CAD7C00A11A80 /* TJLMethod.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBF4BF7186BBC0800A11A80 /* TJLViewController.m in Sources */,
+				DBBF4C24186CAD7C00A11A80 /* TJLMethod.m in Sources */,
 				DBBF4C17186BBC2C00A11A80 /* TJLRuntime.m in Sources */,
 				DBBF4BED186BBC0800A11A80 /* main.m in Sources */,
 				DBBF4C1B186BBC6300A11A80 /* TJLProperty.m in Sources */,

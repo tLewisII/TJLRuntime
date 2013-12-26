@@ -39,6 +39,18 @@
     return [self initWithClass:klass property:property ivarInstance:nil];
 }
 
++ (instancetype)propertyWithClass:(Class)klass name:(NSString *)name {
+    objc_property_t property = class_getProperty(klass, name.UTF8String);
+    if(property == NULL) return nil;
+    else return [[self alloc]initWithClass:klass property:property];
+}
+
++ (instancetype)propertyWithClass:(Class)klass name:(NSString *)name ivarInstance:(id)instance {
+    objc_property_t property = class_getProperty(klass, name.UTF8String);
+    if(property == NULL) return nil;
+    else return [[self alloc]initWithClass:klass property:property ivarInstance:instance];
+}
+
 - (NSString *)name {
     return _propertyName;
 }
@@ -53,15 +65,13 @@
 
 - (TJLIvar *)ivar {
     if(_ivarInstance) {
-        const char * ivarName = [NSString stringWithFormat:@"_%@", self.name].UTF8String;
-        return [[TJLIvar alloc]initWithInstance:_ivarInstance ivar:class_getInstanceVariable(self.klass, ivarName)];
+        return [TJLIvar ivarForClass:self.klass name:[NSString stringWithFormat:@"_%@", self.name] instance:_ivarInstance];
     }
     else
         return nil;
 }
 - (TJLIvar *)ivarForInstanceOfClass:(id)instance {
-    const char * ivarName = [NSString stringWithFormat:@"_%@", self.name].UTF8String;
-    _ivar = [[TJLIvar alloc]initWithInstance:instance ivar:class_getInstanceVariable(self.klass, ivarName)];
+    _ivar = [TJLIvar ivarForClass:self.klass name:[NSString stringWithFormat:@"_%@", self.name] instance:instance];
     return _ivar;
 }
 

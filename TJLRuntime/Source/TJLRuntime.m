@@ -65,7 +65,7 @@
     
     Ivar *ivars = class_copyIvarList(klass, &count);
     for(unsigned int i = 0; i < count; i++) {
-        TJLIvar *ivar = [[TJLIvar alloc]initWithInstance:nil ivar:ivars[i]];
+        TJLIvar *ivar = [[TJLIvar alloc]initWithIvar:ivars[i] instance:nil];
         dictionary[ivar.type] = ivar.name;
     }
     free(ivars);
@@ -96,7 +96,7 @@
     
     Ivar *ivars = class_copyIvarList(klass, &count);
     for(unsigned int i = 0; i < count; i++) {
-        array[i] = [[TJLIvar alloc]initWithInstance:instance ivar:ivars[i]];
+        array[i] = [[TJLIvar alloc]initWithIvar:ivars[i] instance:instance];
     }
     free(ivars);
     
@@ -106,6 +106,6 @@
 - (TJLIvar *)ivarForClass:(Class)klass name:(NSString *)name instance:(id)instance {
     Ivar ivar = class_getInstanceVariable(klass, name.UTF8String);
     if(ivar == NULL) return nil;
-    else return [[TJLIvar alloc]initWithInstance:instance ivar:ivar];
+    else return [[TJLIvar alloc]initWithIvar:ivar instance:instance];
 }
 @end

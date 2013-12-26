@@ -11,16 +11,53 @@
 @interface TJLIvar : NSObject
 
 /**
- * Initializes the class with an instance of a class that
- * holds the ivar, as well as the Ivar itself.
+ * Initializes the class with an Ivar. Note that without an
+ * instance of the class that holds the Ivar, you cannot get or
+ * set the value of the Ivar.
  *
- * @param instance An instance of the object that would hold
- * the Ivar.
  * @param Ivar the Ivar that will be wrapped by this class.
  * @return An object that wraps the info and behaviors of
  * Ivar into Foundation objects.
  */
-- (instancetype)initWithInstance:(id)instance ivar:(Ivar)ivar;
+- (instancetype)initWithIvar:(Ivar)ivar;
+
+/**
+ * Initializes the class with an instance of a class that
+ * holds the ivar, as well as the Ivar itself.
+ *
+ * @param Ivar the Ivar that will be wrapped by this class.
+ * @param instance An instance of the object that would hold
+ * the Ivar.
+ * @return An object that wraps the info and behaviors of
+ * Ivar into Foundation objects.
+ */
+- (instancetype)initWithIvar:(Ivar)ivar instance:(id)instance;
+
+/**
+ * Looks up a ivar by name for the given class.
+ * If no ivar was found, returns nil.
+ *
+ * @param klass The class that the ivar is attached to.
+ * @param name the name of the ivar.
+ * @return An object that wraps the info and behaviors of
+ * Ivar into Foundation objects. Returns nil if
+ * no ivar was found for the given name on the given class.
+ */
++ (instancetype)ivarForClass:(Class)klass name:(NSString *)name;
+
+/**
+ * Looks up a ivar by name for the given class.
+ * If no ivar was found, returns nil.
+ *
+ * @param klass The class that the ivar is attached to.
+ * @param name the name of the ivar.
+ * @param instance An instance of the object that would hold
+ * the Ivar.
+ * @return An object that wraps the info and behaviors of
+ * Ivar into Foundation objects. Returns nil if
+ * no ivar was found for the given name on the given class.
+ */
++ (instancetype)ivarForClass:(Class)klass name:(NSString *)name instance:(id)instance;
 
 /**
  * The value associated with this Ivar. Is a read/write

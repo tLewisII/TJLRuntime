@@ -38,6 +38,32 @@
  */
 - (instancetype)initWithClass:(Class)klass property:(objc_property_t)property ivarInstance:(id)instance;
 
+/**
+ * Looks up a property by name for the given class.
+ * If no property was found, returns nil.
+ *
+ * @param klass The class that the property is attached to.
+ * @param name the name of the property.
+ * @return An object that wraps the info and behaviors of
+ * objc_property_t into Foundation objects. Returns nil if
+ * no property was found for the given name on the given class.
+ */
++ (instancetype)propertyWithClass:(Class)klass name:(NSString *)name;
+
+/**
+ * Looks up a property by name for the given class.
+ * If no property was found, returns nil. Also stores an
+ * instance of the given class for accessing the backing Ivar.
+ *
+ * @param klass The class that the property is attached to.
+ * @param name the name of the property.
+ * @param instance An instance of the object that would hold
+ * the Ivar that backs this property.
+ * @return An object that wraps the info and behaviors of
+ * objc_property_t into Foundation objects. Returns nil if
+ * no property was found for the given name on the given class.
+ */
++ (instancetype)propertyWithClass:(Class)klass name:(NSString *)name ivarInstance:(id)instance;
 
 /**
  * The name of the property. A property declared as

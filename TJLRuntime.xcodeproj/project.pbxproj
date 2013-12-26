@@ -24,6 +24,7 @@
 		DBBF4C17186BBC2C00A11A80 /* TJLRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C16186BBC2C00A11A80 /* TJLRuntime.m */; };
 		DBBF4C1B186BBC6300A11A80 /* TJLProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1A186BBC6300A11A80 /* TJLProperty.m */; };
 		DBBF4C1E186BCDA600A11A80 /* TJLIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */; };
+		DBBF4C21186CA5F400A11A80 /* TJLTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C20186CA5F400A11A80 /* TJLTestClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		DBBF4C1A186BBC6300A11A80 /* TJLProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLProperty.m; path = Source/TJLProperty.m; sourceTree = "<group>"; };
 		DBBF4C1C186BCDA600A11A80 /* TJLIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLIvar.h; path = Source/TJLIvar.h; sourceTree = "<group>"; };
 		DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLIvar.m; path = Source/TJLIvar.m; sourceTree = "<group>"; };
+		DBBF4C1F186CA5F400A11A80 /* TJLTestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJLTestClass.h; sourceTree = "<group>"; };
+		DBBF4C20186CA5F400A11A80 /* TJLTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLTestClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				DBBF4BF8186BBC0800A11A80 /* Images.xcassets */,
 				DBBF4BE7186BBC0800A11A80 /* Supporting Files */,
 				DBBF4C18186BBC3900A11A80 /* Source */,
+				DBBF4C1F186CA5F400A11A80 /* TJLTestClass.h */,
+				DBBF4C20186CA5F400A11A80 /* TJLTestClass.m */,
 			);
 			path = TJLRuntime;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				DBBF4BED186BBC0800A11A80 /* main.m in Sources */,
 				DBBF4C1B186BBC6300A11A80 /* TJLProperty.m in Sources */,
 				DBBF4C1E186BCDA600A11A80 /* TJLIvar.m in Sources */,
+				DBBF4C21186CA5F400A11A80 /* TJLTestClass.m in Sources */,
 				DBBF4BF1186BBC0800A11A80 /* TJLAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +493,7 @@
 				DBBF4C11186BBC0800A11A80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DBBF4C12186BBC0800A11A80 /* Build configuration list for PBXNativeTarget "TJLRuntimeTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +502,7 @@
 				DBBF4C14186BBC0800A11A80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

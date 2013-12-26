@@ -14,7 +14,12 @@
 
 @end
 @implementation TJLIvar
-- (instancetype)initWithInstance:(id)instance ivar:(Ivar)ivar {
+
+- (instancetype)initWithIvar:(Ivar)ivar {
+    return [self initWithIvar:ivar instance:nil];
+}
+
+- (instancetype)initWithIvar:(Ivar)ivar instance:(id)instance {
     self = [super init];
     if (!self) {
         return nil;
@@ -29,12 +34,26 @@
     return self;
 }
 
++ (instancetype)ivarForClass:(Class)klass name:(NSString *)name {
+    Ivar ivar = class_getInstanceVariable(klass, name.UTF8String);
+    if(ivar == NULL) return nil;
+    else return [[self alloc]initWithIvar:ivar instance:nil];
+}
+
++ (instancetype)ivarForClass:(Class)klass name:(NSString *)name instance:(id)instance {
+    Ivar ivar = class_getInstanceVariable(klass, name.UTF8String);
+    if(ivar == NULL) return nil;
+    else return [[self alloc]initWithIvar:ivar instance:instance];
+}
+
 - (id)value {
-    return object_getIvar(self.instance, self.ivar);
+    if(!self.instance) return nil;
+    else return object_getIvar(self.instance, self.ivar);
 }
 
 - (void)setValue:(id)value {
-    object_setIvar(self.instance, self.ivar, value);
+    if(self.instance)
+        object_setIvar(self.instance, self.ivar, value);
 }
 
 - (NSString *)name {

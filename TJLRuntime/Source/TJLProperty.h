@@ -21,7 +21,7 @@
  * @return An object that wraps the info and behaviors of
  * objc_property_t into Foundation objects.
  */
-- (instancetype)initWithClass:(Class)klass property:(objc_property_t)property;
+- (instancetype)__attribute__((nonnull(1, 2)))initWithClass:(Class)klass property:(objc_property_t)property;
 
 /**
  * Initialize the class with a single objc_property_t struct
@@ -36,7 +36,7 @@
  * @return An object that wraps the info and behaviors of
  * objc_property_t into Foundation objects.
  */
-- (instancetype)initWithClass:(Class)klass property:(objc_property_t)property ivarInstance:(id)instance;
+- (instancetype)__attribute__((nonnull(1, 2)))initWithClass:(Class)klass property:(objc_property_t)property ivarInstance:(id)instance;
 
 /**
  * Looks up a property by name for the given class.
@@ -48,7 +48,7 @@
  * objc_property_t into Foundation objects. Returns nil if
  * no property was found for the given name on the given class.
  */
-+ (instancetype)propertyWithClass:(Class)klass name:(NSString *)name;
++ (instancetype)__attribute__((nonnull(1, 2)))propertyWithClass:(Class)klass name:(NSString *)name;
 
 /**
  * Looks up a property by name for the given class.
@@ -63,7 +63,7 @@
  * objc_property_t into Foundation objects. Returns nil if
  * no property was found for the given name on the given class.
  */
-+ (instancetype)propertyWithClass:(Class)klass name:(NSString *)name ivarInstance:(id)instance;
++ (instancetype)__attribute__((nonnull(1, 2)))propertyWithClass:(Class)klass name:(NSString *)name ivarInstance:(id)instance;
 
 /**
  * The name of the property. A property declared as

@@ -70,15 +70,14 @@
 }
 
 - (TJLIvar *)ivar {
-    if(_ivarInstance) {
-        return [TJLIvar ivarForClass:self.klass name:[NSString stringWithFormat:@"_%@", self.name] instance:_ivarInstance];
+    if(!_ivar && _ivarInstance) {
+        _ivar = [TJLIvar ivarForClass:self.klass name:[NSString stringWithFormat:@"_%@", self.name] instance:_ivarInstance];
     }
-    else
-        return nil;
-}
-- (TJLIvar *)ivarForInstanceOfClass:(id)instance {
-    _ivar = [TJLIvar ivarForClass:self.klass name:[NSString stringWithFormat:@"_%@", self.name] instance:instance];
     return _ivar;
+}
+
+- (TJLIvar *)ivarForInstanceOfClass:(id)instance {
+    return [TJLIvar ivarForClass:self.klass name:[NSString stringWithFormat:@"_%@", self.name] instance:instance];
 }
 
 static NSString *getPropertyType(objc_property_t property) {

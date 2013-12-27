@@ -19,7 +19,7 @@
  * @return An object that wraps the info and behaviors of
  * Ivar into Foundation objects.
  */
-- (instancetype)initWithIvar:(Ivar)ivar;
+- (instancetype)__attribute__((nonnull(1)))initWithIvar:(Ivar)ivar;
 
 /**
  * Initializes the class with an instance of a class that
@@ -31,7 +31,7 @@
  * @return An object that wraps the info and behaviors of
  * Ivar into Foundation objects.
  */
-- (instancetype)initWithIvar:(Ivar)ivar instance:(id)instance;
+- (instancetype)__attribute__((nonnull(1)))initWithIvar:(Ivar)ivar instance:(id)instance;
 
 /**
  * Looks up a ivar by name for the given class.
@@ -43,7 +43,7 @@
  * Ivar into Foundation objects. Returns nil if
  * no ivar was found for the given name on the given class.
  */
-+ (instancetype)ivarForClass:(Class)klass name:(NSString *)name;
++ (instancetype)__attribute__((nonnull(1, 2)))ivarForClass:(Class)klass name:(NSString *)name;
 
 /**
  * Looks up a ivar by name for the given class.
@@ -57,7 +57,7 @@
  * Ivar into Foundation objects. Returns nil if
  * no ivar was found for the given name on the given class.
  */
-+ (instancetype)ivarForClass:(Class)klass name:(NSString *)name instance:(id)instance;
++ (instancetype)__attribute__((nonnull(1, 2)))ivarForClass:(Class)klass name:(NSString *)name instance:(id)instance;
 
 /**
  * The value associated with this Ivar. Is a read/write

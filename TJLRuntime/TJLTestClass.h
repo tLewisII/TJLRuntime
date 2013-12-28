@@ -14,6 +14,9 @@
 }
 
 - (instancetype)initWithName:(NSString *)name number:(NSNumber *)number;
+
+- (NSString *)puppyString;
+
 @property(strong, nonatomic) NSString *nameString;
 @property(strong, nonatomic) NSNumber *number;
 @end

@@ -28,6 +28,7 @@
 		DBBF4C27186E7E2900A11A80 /* TJLClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C26186E7E2900A11A80 /* TJLClass.m */; };
 		DBBF4C2C186F2A6700A11A80 /* TJLPropertiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C2B186F2A6700A11A80 /* TJLPropertiesTests.m */; };
 		DBBF4C2E186F2A8B00A11A80 /* TJLIvarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C2D186F2A8B00A11A80 /* TJLIvarTests.m */; };
+		DBBF4C30186F534D00A11A80 /* TJLMethodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C2F186F534D00A11A80 /* TJLMethodTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		DBBF4C26186E7E2900A11A80 /* TJLClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLClass.m; path = Source/TJLClass.m; sourceTree = "<group>"; };
 		DBBF4C2B186F2A6700A11A80 /* TJLPropertiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLPropertiesTests.m; sourceTree = "<group>"; };
 		DBBF4C2D186F2A8B00A11A80 /* TJLIvarTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLIvarTests.m; sourceTree = "<group>"; };
+		DBBF4C2F186F534D00A11A80 /* TJLMethodTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLMethodTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				DBBF4C2D186F2A8B00A11A80 /* TJLIvarTests.m */,
 				DBBF4C2B186F2A6700A11A80 /* TJLPropertiesTests.m */,
+				DBBF4C2F186F534D00A11A80 /* TJLMethodTests.m */,
 				DBBF4C06186BBC0800A11A80 /* Supporting Files */,
 			);
 			path = TJLRuntimeTests;
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBF4C2C186F2A6700A11A80 /* TJLPropertiesTests.m in Sources */,
+				DBBF4C30186F534D00A11A80 /* TJLMethodTests.m in Sources */,
 				DBBF4C2E186F2A8B00A11A80 /* TJLIvarTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

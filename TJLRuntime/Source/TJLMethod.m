@@ -85,55 +85,52 @@ static NSString *getReturnTypeFromCode(char *code) {
     if(code == nil) {
         returnValue = @"";
     }
-    else if(strcmp(code, "c") == 0) {
+    else if(strcmp(code, @encode(char)) == 0) {
         returnValue = @"char";
     }
-    else if(strcmp(code, "i") == 0) {
+    else if(strcmp(code, @encode(int)) == 0) {
         returnValue = @"int";
     }
-    else if(strcmp(code, "s") == 0) {
+    else if(strcmp(code, @encode(short)) == 0) {
         returnValue = @"short";
     }
-    else if(strcmp(code, "l") == 0) {
+    else if(strcmp(code, @encode(long)) == 0) {
         returnValue = @"long";
     }
-    else if(strcmp(code, "q") == 0) {
+    else if(strcmp(code, @encode(long long)) == 0) {
         returnValue = @"long long";
     }
-    else if(strcmp(code, "C") == 0) {
+    else if(strcmp(code, @encode(unsigned char)) == 0) {
         returnValue = @"unsigned char";
     }
-    else if(strcmp(code, "I") == 0) {
+    else if(strcmp(code, @encode(unsigned int)) == 0) {
         returnValue = @"unsigned int";
     }
-    else if(strcmp(code, "S") == 0) {
+    else if(strcmp(code, @encode(unsigned short)) == 0) {
         returnValue = @"unsigned short";
     }
-    else if(strcmp(code, "L") == 0) {
+    else if(strcmp(code, @encode(unsigned long)) == 0) {
         returnValue = @"unsigned long";
     }
-    else if(strcmp(code, "Q") == 0) {
+    else if(strcmp(code, @encode(unsigned long long)) == 0) {
         returnValue = @"unsigned long long";
     }
-    else if(strcmp(code, "f") == 0) {
+    else if(strcmp(code, @encode(float)) == 0) {
         returnValue = @"float";
     }
-    else if(strcmp(code, "d") == 0) {
+    else if(strcmp(code, @encode(double)) == 0) {
         returnValue = @"double";
     }
-    else if(strcmp(code, "B") == 0) {
+    else if(strcmp(code, @encode(BOOL)) == 0) {
         returnValue = @"bool";
     }
-    else if(strcmp(code, "*") == 0) {
+    else if(strcmp(code, @encode(char *)) == 0) {
         returnValue = @"char *";
     }
-    else if(strcmp(code, "q") == 0) {
-        returnValue = @"long long";
-    }
-    else if(strcmp(code, "#") == 0) {
+    else if(strcmp(code, @encode(Class)) == 0) {
         returnValue = @"Class";
     }
-    else if(strcmp(code, ":") == 0) {
+    else if(strcmp(code, @encode(SEL)) == 0) {
         returnValue = @"SEL";
     }
     else if(strcmp(code, "?") == 0) {
@@ -142,13 +139,13 @@ static NSString *getReturnTypeFromCode(char *code) {
     else if(strncmp(code, "{", 1) == 0) {
         returnValue = [NSString stringWithUTF8String:code];
     }
-    else if(strcmp(code, "@") == 0) {
+    else if(strcmp(code, @encode(id)) == 0) {
         returnValue = @"id";
     }
-    else if(strcmp(code, "v") == 0) {
+    else if(strcmp(code, @encode(void)) == 0) {
         returnValue = @"void";
     }
-    else if(strcmp(code, "@?") == 0) {
+    else if(strcmp(code, @encode(void (^)(void))) == 0) {
         returnValue = @"block type";
     }
     else if(strcmp(code, "Vv") == 0) {

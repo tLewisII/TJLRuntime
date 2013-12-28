@@ -22,5 +22,10 @@
     _ivarArray = @[@"array"];
     _ivarDict = [NSMutableDictionary dictionaryWithDictionary:@{@"bob" : @"uncle"}];
     return self;
+    
+}
+
+- (NSString *)puppyString {
+    return @"Wow, much puppy.";
 }
 @end

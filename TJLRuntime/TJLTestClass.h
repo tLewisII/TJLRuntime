@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TJLTestClass : NSObject
+@interface TJLTestClass : NSObject {
+    NSArray *_ivarArray;
+    NSMutableDictionary *_ivarDict;
+}
 
 - (instancetype)initWithName:(NSString *)name number:(NSNumber *)number;
 @property(strong, nonatomic) NSString *nameString;

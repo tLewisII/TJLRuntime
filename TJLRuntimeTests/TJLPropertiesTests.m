@@ -1,16 +1,15 @@
 //
-//  TJLRuntimeTests.m
-//  TJLRuntimeTests
+//  TJLPropertiesTests.m
+//  TJLRuntime
 //
-//  Created by Terry Lewis II on 12/25/13.
+//  Created by Terry Lewis II on 12/28/13.
 //  Copyright (c) 2013 Terry Lewis. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "TJLRuntime.h"
 #import "TJLTestClass.h"
-
-@interface TJLRuntimeTests : XCTestCase {
+@interface TJLPropertiesTests : XCTestCase {
     TJLRuntime *_runtime;
     TJLTestClass *_testClass;
     NSArray *_propertyNames;
@@ -20,9 +19,10 @@
 
 @end
 
-@implementation TJLRuntimeTests
+@implementation TJLPropertiesTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     _testClass = [[TJLTestClass alloc]initWithName:@"Terry" number:@42];
     _runtime = [[TJLRuntime alloc]init];
@@ -31,8 +31,9 @@
     _propertyIvarValues = @[@"Terry", @42];
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+- (void)tearDown
+{
+    // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
 }
 
@@ -40,12 +41,7 @@
     NSArray *properties = [_runtime propertyNameArrayForClass:_testClass.class];
     XCTAssertTrue(properties.count == _propertyNames.count, @"Count should be the same");
     
-    for(NSInteger i = 0; i < properties.count; i++) {
-        NSString *runtimeName = properties[i];
-        NSString *staticName = _propertyNames[i];
-        XCTAssertTrue([runtimeName isEqualToString:staticName], @"Names should be equal");
-    }
-        
+    XCTAssertTrue([properties isEqualToArray:_propertyNames], @"Should be equal");
 }
 
 - (void)test_property_types {
@@ -61,15 +57,9 @@
 
 - (void)test_property_dictionary {
     NSDictionary *dictionary = [_runtime propertyTypeAndNameDictionaryForClass:_testClass.class];
-    __block NSInteger i = 0;
-    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *keyName, NSString *valueType, BOOL *stop) {
-        NSString *type = _propertyTypes[i];
-        NSString *name = _propertyNames[i];
-        
-        XCTAssertTrue([type isEqualToString:valueType], @"Types should be equal");
-        XCTAssertTrue([name isEqualToString:keyName], @"Names should be equal");
-        i++;
-    }];
+    NSDictionary *propertyNamesAndTypes = [NSDictionary dictionaryWithObjects:_propertyTypes forKeys:_propertyNames];
+    
+    XCTAssertTrue([dictionary isEqualToDictionary:propertyNamesAndTypes], @"Should be equal");
 }
 
 - (void)test_property_ivar_value {

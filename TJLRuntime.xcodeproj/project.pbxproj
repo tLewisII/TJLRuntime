@@ -20,13 +20,14 @@
 		DBBF4C01186BBC0800A11A80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBF4BE0186BBC0800A11A80 /* Foundation.framework */; };
 		DBBF4C02186BBC0800A11A80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBF4BE4186BBC0800A11A80 /* UIKit.framework */; };
 		DBBF4C0A186BBC0800A11A80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBBF4C08186BBC0800A11A80 /* InfoPlist.strings */; };
-		DBBF4C0C186BBC0800A11A80 /* TJLRuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C0B186BBC0800A11A80 /* TJLRuntimeTests.m */; };
 		DBBF4C17186BBC2C00A11A80 /* TJLRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C16186BBC2C00A11A80 /* TJLRuntime.m */; };
 		DBBF4C1B186BBC6300A11A80 /* TJLProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1A186BBC6300A11A80 /* TJLProperty.m */; };
 		DBBF4C1E186BCDA600A11A80 /* TJLIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */; };
 		DBBF4C21186CA5F400A11A80 /* TJLTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C20186CA5F400A11A80 /* TJLTestClass.m */; };
 		DBBF4C24186CAD7C00A11A80 /* TJLMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C23186CAD7C00A11A80 /* TJLMethod.m */; };
 		DBBF4C27186E7E2900A11A80 /* TJLClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C26186E7E2900A11A80 /* TJLClass.m */; };
+		DBBF4C2C186F2A6700A11A80 /* TJLPropertiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C2B186F2A6700A11A80 /* TJLPropertiesTests.m */; };
+		DBBF4C2E186F2A8B00A11A80 /* TJLIvarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C2D186F2A8B00A11A80 /* TJLIvarTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,6 @@
 		DBBF4BFF186BBC0800A11A80 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DBBF4C07186BBC0800A11A80 /* TJLRuntimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TJLRuntimeTests-Info.plist"; sourceTree = "<group>"; };
 		DBBF4C09186BBC0800A11A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DBBF4C0B186BBC0800A11A80 /* TJLRuntimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJLRuntimeTests.m; sourceTree = "<group>"; };
 		DBBF4C15186BBC2C00A11A80 /* TJLRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLRuntime.h; path = Source/TJLRuntime.h; sourceTree = "<group>"; };
 		DBBF4C16186BBC2C00A11A80 /* TJLRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLRuntime.m; path = Source/TJLRuntime.m; sourceTree = "<group>"; };
 		DBBF4C19186BBC6300A11A80 /* TJLProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLProperty.h; path = Source/TJLProperty.h; sourceTree = "<group>"; };
@@ -71,6 +71,8 @@
 		DBBF4C23186CAD7C00A11A80 /* TJLMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLMethod.m; path = Source/TJLMethod.m; sourceTree = "<group>"; };
 		DBBF4C25186E7E2900A11A80 /* TJLClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLClass.h; path = Source/TJLClass.h; sourceTree = "<group>"; };
 		DBBF4C26186E7E2900A11A80 /* TJLClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLClass.m; path = Source/TJLClass.m; sourceTree = "<group>"; };
+		DBBF4C2B186F2A6700A11A80 /* TJLPropertiesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLPropertiesTests.m; sourceTree = "<group>"; };
+		DBBF4C2D186F2A8B00A11A80 /* TJLIvarTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLIvarTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +160,8 @@
 		DBBF4C05186BBC0800A11A80 /* TJLRuntimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				DBBF4C0B186BBC0800A11A80 /* TJLRuntimeTests.m */,
+				DBBF4C2D186F2A8B00A11A80 /* TJLIvarTests.m */,
+				DBBF4C2B186F2A6700A11A80 /* TJLPropertiesTests.m */,
 				DBBF4C06186BBC0800A11A80 /* Supporting Files */,
 			);
 			path = TJLRuntimeTests;
@@ -304,7 +307,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBBF4C0C186BBC0800A11A80 /* TJLRuntimeTests.m in Sources */,
+				DBBF4C2C186F2A6700A11A80 /* TJLPropertiesTests.m in Sources */,
+				DBBF4C2E186F2A8B00A11A80 /* TJLIvarTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

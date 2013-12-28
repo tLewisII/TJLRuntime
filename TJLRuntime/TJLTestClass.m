@@ -19,6 +19,8 @@
     _nameString = name;
     _number = number;
     
+    _ivarArray = @[@"array"];
+    _ivarDict = [NSMutableDictionary dictionaryWithDictionary:@{@"bob" : @"uncle"}];
     return self;
 }
 @end

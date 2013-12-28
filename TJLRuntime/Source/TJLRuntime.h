@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TJLProperty.h"
 #import "TJLMethod.h"
+#import "TJLClass.h"
 #import <objc/runtime.h>
 @interface TJLRuntime : NSObject
 
@@ -146,4 +147,38 @@
  * An fully initialized TJLMethod object, nil otherwise.
  */
 - (TJLMethod *)__attribute__((nonnull(1, 2)))instanceMethodForClass:(Class)klass name:(NSString *)name;
+
+/**
+ * An NSArray of NSString's of all the class names registered with the
+ * runtime.
+ *
+ * @return An NSArray of NSString objects of all the class names registered with the runtime.
+ */
+- (NSArray *)allClassNames;
+
+/**
+ * An NSArray of TJLClass objects that represent all the classes registered with the
+ * runtime.
+ *
+ * @return An NSArray of TJLClass objects that represent all the classes registered 
+ * with the runtime.
+ */
+- (NSArray *)allClasses;
+
+/**
+ * Returns a TJLClass object by name, or nil if no class was found with
+ * the given name.
+ *
+ * @param name The name of the class you wish to search for, such as `NSObject`.
+ * @return A TJLClass object that wraps the methods on `Class` into foundation objects.
+ */
+- (TJLClass *)__attribute__((nonnull(1)))classForName:(NSString *)name;
+
+/**
+ * Returns a TJLClass object that wraps the given class.
+ *
+ * @param klass the class that will be wrapped by this object.
+ * @return A TJLClass object that wraps the methods on `Class` into foundation objects.
+ */
+- (TJLClass *)__attribute__((nonnull(1)))classForClass:(Class)klass;
 @end

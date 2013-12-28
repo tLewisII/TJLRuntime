@@ -138,4 +138,38 @@
 - (TJLMethod *)instanceMethodForClass:(Class)klass name:(NSString *)name {
     return [TJLMethod instanceMethodWithClass:klass name:name];
 }
+
+- (NSArray *)allClassNames {
+    unsigned int count;
+    Class *classes = objc_copyClassList(&count);
+    
+    NSMutableArray *array = [NSMutableArray new];
+    for(unsigned int i = 0; i < count; i++) {
+        array[i] = @(class_getName(classes[i]));
+    }
+    free(classes);
+    
+    return array;
+}
+
+- (NSArray *)allClasses {
+    unsigned int count;
+    Class *classes = objc_copyClassList(&count);
+    
+    NSMutableArray *array = [NSMutableArray new];
+    for(unsigned int i = 0; i < count; i++) {
+        array[i] = [[TJLClass alloc]initWithClass:classes[i]];
+    }
+    free(classes);
+    
+    return array;
+}
+
+- (TJLClass *)classForName:(NSString *)name {
+    return [TJLClass classWithName:name];
+}
+
+- (TJLClass *)classForClass:(Class)klass {
+    return [[TJLClass alloc]initWithClass:klass];
+}
 @end

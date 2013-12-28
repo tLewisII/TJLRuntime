@@ -26,6 +26,7 @@
 		DBBF4C1E186BCDA600A11A80 /* TJLIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */; };
 		DBBF4C21186CA5F400A11A80 /* TJLTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C20186CA5F400A11A80 /* TJLTestClass.m */; };
 		DBBF4C24186CAD7C00A11A80 /* TJLMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C23186CAD7C00A11A80 /* TJLMethod.m */; };
+		DBBF4C27186E7E2900A11A80 /* TJLClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBF4C26186E7E2900A11A80 /* TJLClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		DBBF4C20186CA5F400A11A80 /* TJLTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLTestClass.m; sourceTree = "<group>"; };
 		DBBF4C22186CAD7C00A11A80 /* TJLMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLMethod.h; path = Source/TJLMethod.h; sourceTree = "<group>"; };
 		DBBF4C23186CAD7C00A11A80 /* TJLMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLMethod.m; path = Source/TJLMethod.m; sourceTree = "<group>"; };
+		DBBF4C25186E7E2900A11A80 /* TJLClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJLClass.h; path = Source/TJLClass.h; sourceTree = "<group>"; };
+		DBBF4C26186E7E2900A11A80 /* TJLClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TJLClass.m; path = Source/TJLClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 				DBBF4C1D186BCDA600A11A80 /* TJLIvar.m */,
 				DBBF4C22186CAD7C00A11A80 /* TJLMethod.h */,
 				DBBF4C23186CAD7C00A11A80 /* TJLMethod.m */,
+				DBBF4C25186E7E2900A11A80 /* TJLClass.h */,
+				DBBF4C26186E7E2900A11A80 /* TJLClass.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				DBBF4C24186CAD7C00A11A80 /* TJLMethod.m in Sources */,
 				DBBF4C17186BBC2C00A11A80 /* TJLRuntime.m in Sources */,
 				DBBF4BED186BBC0800A11A80 /* main.m in Sources */,
+				DBBF4C27186E7E2900A11A80 /* TJLClass.m in Sources */,
 				DBBF4C1B186BBC6300A11A80 /* TJLProperty.m in Sources */,
 				DBBF4C1E186BCDA600A11A80 /* TJLIvar.m in Sources */,
 				DBBF4C21186CA5F400A11A80 /* TJLTestClass.m in Sources */,

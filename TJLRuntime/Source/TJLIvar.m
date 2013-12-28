@@ -55,7 +55,7 @@
 
 - (NSString *)name {
     if(!_ivarName) {
-        _ivarName = [NSString stringWithUTF8String:ivar_getName(self.ivar)];
+        _ivarName = @(ivar_getName(self.ivar));
     }
     return _ivarName;
 }
@@ -63,7 +63,8 @@
 - (NSString *)type {
     if(!_ivarType) {
         const char *type = ivar_getTypeEncoding(self.ivar);
-        _ivarType = [[NSString alloc]initWithBytes:type + 2 length:strlen(type) - 3 encoding:NSUTF8StringEncoding];
+        if(strlen(type) == 1) _ivarType = @(type);
+        else _ivarType = [[NSString alloc]initWithBytes:type + 2 length:strlen(type) - 3 encoding:NSUTF8StringEncoding];
     }
     return _ivarType;
 }

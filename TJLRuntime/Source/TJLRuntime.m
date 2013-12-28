@@ -29,7 +29,7 @@
     
     objc_property_t *properties = class_copyPropertyList(klass, &count);
     for(unsigned int i = 0; i < count; i++) {        
-        array[i] = [NSString stringWithUTF8String:property_getName(properties[i])];
+        array[i] = @(property_getName(properties[i]));
     }
     free(properties);
     
@@ -77,7 +77,7 @@
     
     Ivar *ivars = class_copyIvarList(klass, &count);
     for(unsigned int i = 0; i < count; i++) {
-        array[i] = [NSString stringWithUTF8String:ivar_getName(ivars[i])];
+        array[i] = @(ivar_getName(ivars[i]));
     }
     free(ivars);
     

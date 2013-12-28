@@ -152,7 +152,7 @@ static NSString *getReturnTypeFromCode(char *code) {
         returnValue = @"block type";
     }
     else if(strcmp(code, "Vv") == 0) {
-        returnValue = @"release method";
+        returnValue = @"oneway void";
     }
     
     return returnValue;

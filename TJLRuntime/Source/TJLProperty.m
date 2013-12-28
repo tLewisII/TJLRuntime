@@ -50,7 +50,7 @@
 
 - (NSString *)name {
     if(!_propertyName) {
-        _propertyName = [NSString stringWithUTF8String:property_getName(self.property)];
+        _propertyName = @(property_getName(self.property));
     }
     return _propertyName;
 }
@@ -64,7 +64,7 @@
 
 - (NSString *)attributes {
     if(!_propertyAttributes) {
-        _propertyAttributes = [NSString stringWithUTF8String:property_getAttributes(self.property)];
+        _propertyAttributes = @(property_getAttributes(self.property));
     }
     return _propertyAttributes;
 }

@@ -10,6 +10,7 @@
 #import "TJLProperty.h"
 #import "TJLMethod.h"
 #import "TJLClass.h"
+#import "TJLIvar.h"
 #import <objc/runtime.h>
 @interface TJLRuntime : NSObject
 
@@ -181,4 +182,29 @@
  * @return A TJLClass object that wraps the methods on `Class` into foundation objects.
  */
 - (TJLClass *)__attribute__((nonnull(1)))classForClass:(Class)klass;
+
+/**
+ * Creates a new class with the given name and superclass. Note that you must call
+ * `registerClass:` once you are finshed added all methods, properties and ivars to the
+ * newly created class.
+ * 
+ * @param name The name of the class you want to create, cannot conflict with any other classes known
+ * to the runtime.
+ * @param superclass The superclass ofthe new class you are creating, `[NSObject class]` is most likely
+ * what will be passed for this parameter.
+ * @return A new TJLClass object that can be used to manipulate the newly created class, or nil if
+ * there was an error such as a naming conflict.
+ */
+- (TJLClass *)__attribute__((nonnull(1, 2)))createNewClassWithName:(NSString *)name superClass:(Class)superclass;
+
+/**
+ * Registers the class with the runtime. Should only be called on classes that have been
+ * created at runtime, and only when you are finished constructing the new class.
+ *
+ * @param klass The newly created class that you wish to register with the runtime. Must be
+ * called in order to finish creation of the class. Also, ivars must be added to a class
+ * before this function is called, and cannot be added afterwards.
+ */
+- (void)registerClass:(TJLClass *)klass;
+
 @end

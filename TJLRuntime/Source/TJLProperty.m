@@ -7,6 +7,7 @@
 //
 
 #import "TJLProperty.h"
+#import "TJLIvar.h"
 @interface TJLProperty() {
     NSString *_propertyName;
     NSString *_propertyType;
@@ -56,7 +57,7 @@
 }
 
 - (NSString *)type {
-    if(!_propertyType ) {
+    if(!_propertyType) {
         _propertyType = getPropertyType(self.property);
     }
     return _propertyType;

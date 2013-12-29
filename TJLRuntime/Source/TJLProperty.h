@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
-#import "TJLIvar.h"
+@class TJLIvar;
 @interface TJLProperty : NSObject
 
 /**

@@ -172,4 +172,14 @@
 - (TJLClass *)classForClass:(Class)klass {
     return [[TJLClass alloc]initWithClass:klass];
 }
+
+- (TJLClass *)createNewClassWithName:(NSString *)name superClass:(Class)superclass {
+    Class newClass = objc_allocateClassPair(superclass, name.UTF8String, 0);
+    if(newClass == nil) return nil;
+    else return [[TJLClass alloc]initWithClass:newClass];
+}
+
+- (void)registerClass:(TJLClass *)klass {
+    objc_registerClassPair(klass.klass);
+}
 @end

@@ -49,6 +49,27 @@
     method_setImplementation(_method, class_getMethodImplementation(self.klass, NSSelectorFromString(method.name)));
 }
 
+- (void)invokeVoidMethodWithInstanceOfClass:(id)instance args:(NSArray *)args {
+    [self invokeMethodWithInstanceOfClass:instance args:args];
+}
+
+- (id)invokeMethodWithInstanceOfClass:(id)instance args:(NSArray *)args {
+    NSMethodSignature *methodSignature = [instance methodSignatureForSelector:self.selector];
+    NSCAssert(args.count == methodSignature.numberOfArguments - 2, @"Number of supplied arguments (%lu), does not match the number expected by the signature (%lu)", (unsigned long)args.count, (unsigned long)methodSignature.numberOfArguments - 2);
+    
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+    invocation.selector = self.selector;
+    
+    NSInteger index = 2;
+    for(NSInteger i = 0; i < args.count; i++) {
+        id object = args[i];
+        [invocation setArgument:&object atIndex:index++];
+    }
+    
+    [invocation invokeWithTarget:instance];
+    return [self returnValueForMethodSignature:methodSignature withInvocation:invocation];
+}
+
 - (NSString *)name {
     if(!_methodName) {
         _methodName = NSStringFromSelector(method_getName(self.method));
@@ -84,6 +105,10 @@ static NSString *getReturnTypeFromCode(char *code) {
     
     if(code == nil) {
         returnValue = @"";
+    }
+    // Skip const type qualifier.
+    else if(code[0] == 'r') {
+        code++;
     }
     else if(strcmp(code, @encode(char)) == 0) {
         returnValue = @"char";
@@ -153,6 +178,70 @@ static NSString *getReturnTypeFromCode(char *code) {
     }
     
     return returnValue;
+}
+
+-(id)returnValueForMethodSignature:(NSMethodSignature *)methodSignature withInvocation:(NSInvocation *)invocation {
+#define WRAP_AND_RETURN(type) \
+do { \
+type val = 0; \
+[invocation getReturnValue:&val]; \
+return @(val); \
+} while (0)
+    
+	const char *returnType = methodSignature.methodReturnType;
+	// Skip const type qualifier.
+	if (returnType[0] == 'r') {
+		returnType++;
+	}
+    
+	if (strcmp(returnType, @encode(id)) == 0 || strcmp(returnType, @encode(Class)) == 0 || strcmp(returnType, @encode(void (^)(void))) == 0) {
+		__autoreleasing id returnObj;
+		[invocation getReturnValue:&returnObj];
+		return returnObj;
+	} else if (strcmp(returnType, @encode(char)) == 0) {
+		WRAP_AND_RETURN(char);
+	} else if (strcmp(returnType, @encode(int)) == 0) {
+		WRAP_AND_RETURN(int);
+	} else if (strcmp(returnType, @encode(short)) == 0) {
+		WRAP_AND_RETURN(short);
+	} else if (strcmp(returnType, @encode(long)) == 0) {
+		WRAP_AND_RETURN(long);
+	} else if (strcmp(returnType, @encode(long long)) == 0) {
+		WRAP_AND_RETURN(long long);
+	} else if (strcmp(returnType, @encode(unsigned char)) == 0) {
+		WRAP_AND_RETURN(unsigned char);
+	} else if (strcmp(returnType, @encode(unsigned int)) == 0) {
+		WRAP_AND_RETURN(unsigned int);
+	} else if (strcmp(returnType, @encode(unsigned short)) == 0) {
+		WRAP_AND_RETURN(unsigned short);
+	} else if (strcmp(returnType, @encode(unsigned long)) == 0) {
+		WRAP_AND_RETURN(unsigned long);
+	} else if (strcmp(returnType, @encode(unsigned long long)) == 0) {
+		WRAP_AND_RETURN(unsigned long long);
+	} else if (strcmp(returnType, @encode(float)) == 0) {
+		WRAP_AND_RETURN(float);
+	} else if (strcmp(returnType, @encode(double)) == 0) {
+		WRAP_AND_RETURN(double);
+	} else if (strcmp(returnType, @encode(BOOL)) == 0) {
+		WRAP_AND_RETURN(BOOL);
+	} else if (strcmp(returnType, @encode(char *)) == 0) {
+		WRAP_AND_RETURN(const char *);
+	} else if (strcmp(returnType, @encode(void)) == 0) {
+		return nil;
+	} else {
+		NSUInteger valueSize = 0;
+		NSGetSizeAndAlignment(returnType, &valueSize, NULL);
+        
+		unsigned char valueBytes[valueSize];
+		[invocation getReturnValue:valueBytes];
+        
+		return [NSValue valueWithBytes:valueBytes objCType:returnType];
+	}
+    
+	return nil;
+    
+#undef WRAP_AND_RETURN
+    
 }
 
 @end

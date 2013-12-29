@@ -67,6 +67,28 @@
 - (void)__attribute__((nonnull(1)))setMethodImplementationWithMethod:(TJLMethod *)method;
 
 /**
+ * Ivokes the method that is wrapped by this class with the given instance and args.
+ * Call this method if you know that the method to be invoked has a `void` return type,
+ * otherwise call `invokeMethodWithInstanceOfClass:args:`.
+ *
+ * @param instance The instance of the class that is the target of the method
+ * invocation.
+ * @param args The arguments, if any, that are passed to the method.
+ */
+- (void)__attribute__((nonnull(1)))invokeVoidMethodWithInstanceOfClass:(id)instance args:(NSArray *)args;
+
+/**
+ * Ivokes the method that is wrapped by this class with the given instance and args.
+ * Call this method if you know that the method to be invoked returns a value,
+ * otherwise call `invokeVoidMethodWithInstanceOfClass:args:`.
+ *
+ * @param instance The instance of the class that is the target of the method
+ * invocation.
+ * @param args The arguments, if any, that are passed to the method.
+ */
+- (id)__attribute__((nonnull(1)))invokeMethodWithInstanceOfClass:(id)instance args:(NSArray *)args;
+
+/**
  * The name of the method. A method declared as
  * `- (void)doStuff:(id)stuff withThing:(id)thing;` would
  * return "doStuff:withThing:".

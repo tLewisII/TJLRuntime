@@ -36,26 +36,6 @@
     [super tearDown];
 }
 
-- (void)test_method_names {
-    NSArray *methods = [_runtime methodNameArrayForClass:_testClass.class];
-    XCTAssertTrue([methods isEqualToArray:_methodNames], @"Should be true");
-}
-
-- (void)test_method_return_types {
-    NSArray *methods = [_runtime methodsForClass:_testClass.class];
-    for(NSInteger i = 0; i < methods.count; i++) {
-        XCTAssertTrue([[methods[i] returnType] isEqualToString:_methodTypes[i]], @"Should be true");
-    }
-}
-
-- (void)test_method_argument_count {
-    NSArray *methods = [_runtime methodsForClass:_testClass.class];
-    for(NSInteger i = 0; i < methods.count; i++) {
-        NSLog(@"%lu", (unsigned long)[methods[i] argumentCount]);
-        XCTAssertTrue([@([methods[i] argumentCount]) compare:_methodArgumentCounts[i]] == NSOrderedSame, @"Should be true");
-    }
-}
-
 - (void)test_void_method_invocation {
     TJLMethod *method = [_runtime instanceMethodForClass:_testClass.class selector:@selector(setNameString:)];
     XCTAssertTrue([_testClass.nameString isEqualToString:@"Terry"], @"Name should be Terry");

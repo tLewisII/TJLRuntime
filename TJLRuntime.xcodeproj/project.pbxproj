@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB391FF3187500DE007DCEB0 /* TJLClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB391FF2187500DE007DCEB0 /* TJLClassTests.m */; };
 		DBBF4BE1186BBC0800A11A80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBF4BE0186BBC0800A11A80 /* Foundation.framework */; };
 		DBBF4BE3186BBC0800A11A80 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBF4BE2186BBC0800A11A80 /* CoreGraphics.framework */; };
 		DBBF4BE5186BBC0800A11A80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBBF4BE4186BBC0800A11A80 /* UIKit.framework */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB391FF2187500DE007DCEB0 /* TJLClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLClassTests.m; sourceTree = "<group>"; };
 		DBBF4BDD186BBC0800A11A80 /* TJLRuntime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TJLRuntime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBF4BE0186BBC0800A11A80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DBBF4BE2186BBC0800A11A80 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +164,7 @@
 		DBBF4C05186BBC0800A11A80 /* TJLRuntimeTests */ = {
 			isa = PBXGroup;
 			children = (
+				DB391FF2187500DE007DCEB0 /* TJLClassTests.m */,
 				DBBF4C2D186F2A8B00A11A80 /* TJLIvarTests.m */,
 				DBBF4C2B186F2A6700A11A80 /* TJLPropertiesTests.m */,
 				DBBF4C2F186F534D00A11A80 /* TJLMethodTests.m */,
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBF4C2C186F2A6700A11A80 /* TJLPropertiesTests.m in Sources */,
+				DB391FF3187500DE007DCEB0 /* TJLClassTests.m in Sources */,
 				DBBF4C30186F534D00A11A80 /* TJLMethodTests.m in Sources */,
 				DBBF4C2E186F2A8B00A11A80 /* TJLIvarTests.m in Sources */,
 			);

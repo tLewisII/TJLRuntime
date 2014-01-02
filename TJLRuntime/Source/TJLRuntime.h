@@ -12,6 +12,10 @@
 #import "TJLClass.h"
 #import "TJLIvar.h"
 #import <objc/runtime.h>
+
+#define ClassString(klass) NSStringFromClass([klass class])
+#define Klass(klass) [klass class]
+
 @interface TJLRuntime : NSObject
 
 /**
